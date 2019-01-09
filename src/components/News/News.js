@@ -45,6 +45,7 @@ class News extends Component {
         section={aArticle.section}
         date={publishedDate}
         alt={aArticle.imgCaption}
+        layout={this.props.layout}
       />
     })
     
