@@ -11,4 +11,17 @@
       margin: 0 5px;
     }
   }
+
+  &__layout {
+    display: inline-block;
+    float: right;
+
+    button {
+      font-size: 1.5rem;
+      padding: 0;
+      line-height: 0;
+      margin-left: 10px;
+    }
+  }
+
 }
