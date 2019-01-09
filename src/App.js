@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import News from './components/News/News';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render() {
