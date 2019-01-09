@@ -1,4 +1,5 @@
 import React from 'react';
+import './Article.scss';
 
 const article = (props) => (
   <article className='col-sm-6 col-md-4 col-lg-3 article__card'>
