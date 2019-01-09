@@ -25,6 +25,16 @@ body {
         border-color: #191919;
       }
 
+      .nav {
+
+        &__layout {
+
+          button {
+            color: #fff;
+          }
+        }
+      }
+
       .article {
 
         &__item {
