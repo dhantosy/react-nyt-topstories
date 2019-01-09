@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThList, faTh } from '@fortawesome/free-solid-svg-icons';
 import './Navigation.scss';
+library.add(faThList, faTh);
 
 class Navigation extends Component {
   state = {
@@ -36,6 +40,14 @@ class Navigation extends Component {
     this.setState({ mode: 'light' });
   }
 
+  toggleLayoutList = () => {
+    this.props.layoutChange('list'); 
+  }
+
+  toggleLayoutCard = () => {
+    this.props.layoutChange('card'); 
+  }
+
   render() {
     
     return (
@@ -53,6 +65,20 @@ class Navigation extends Component {
                 className="btn btn-light btn-sm" 
                 onClick={this.toggleLightTheme}>Light</button>
             </p>
+          </div>
+          <div className='nav__layout'>
+            <button 
+              type="button" 
+              className="btn"
+              onClick={this.toggleLayoutList}>
+              <FontAwesomeIcon icon="th-list" />
+            </button>
+            <button 
+              type="button" 
+              className="btn"
+              onClick={this.toggleLayoutCard}>
+              <FontAwesomeIcon icon="th" />
+            </button>
           </div>
         </section>
       </div>
