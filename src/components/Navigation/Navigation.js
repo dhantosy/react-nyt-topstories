@@ -61,37 +61,56 @@ class Navigation extends Component {
     this.props.layoutChange('card'); 
   }
 
+  handleChange = (aEvent) => {
+    this.props.catChange(aEvent.target.value);
+  }
+
   render() {
     
     return (
-      <div className="container">
+      <div className='container'>
         <section>
           <div className='nav__theme'>
             <p>
               <span>Select Theme:</span>
               <button 
-                type="button" 
-                className="btn btn-dark btn-sm" 
+                type='button' 
+                className='btn btn-dark btn-sm' 
                 onClick={this.toggleDarkTheme}>Dark</button>
               <button 
-                type="button" 
-                className="btn btn-light btn-sm" 
+                type='button' 
+                className='btn btn-light btn-sm' 
                 onClick={this.toggleLightTheme}>Light</button>
             </p>
           </div>
           <div className='nav__layout'>
             <button 
-              type="button" 
-              className="btn"
+              type='button' 
+              className='btn'
               onClick={this.toggleLayoutList}>
-              <FontAwesomeIcon icon="th-list" />
+              <FontAwesomeIcon icon='th-list' />
             </button>
             <button 
-              type="button" 
-              className="btn"
+              type='button' 
+              className='btn'
               onClick={this.toggleLayoutCard}>
-              <FontAwesomeIcon icon="th" />
+              <FontAwesomeIcon icon='th' />
             </button>
+          </div>
+        </section>
+        <section>
+          <div className='nav__category'>
+            <span>Select Category:</span>
+            <select 
+              className='custom-select'
+              onChange={this.handleChange} 
+              value={this.state.value}>
+              <option value='home'>Home</option>
+              <option value='arts'>Arts</option>
+              <option value='fashion'>Fashion</option>
+              <option value='food'>Food</option>
+              <option value='travel'>Travel</option>
+            </select>
           </div>
         </section>
       </div>
