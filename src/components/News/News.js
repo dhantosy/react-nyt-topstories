@@ -9,9 +9,17 @@ class News extends Component {
   }
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  componentWillReceiveProps = (aProp) => {
+    this.fetchData(aProp.category);
+  }
+
+  fetchData = (aCategory) => {
     const apiURL = 'https://api.nytimes.com/svc/topstories/v2/';
     const apiKey = 'ad4b888cfa8c4c1992d7912ff6e4cd56';
-    let section = 'home';
+    let section = aCategory ? aCategory : 'home';
 
     axios.get(apiURL + section + '.json?api-key=' + apiKey)
     .then(aResponse => {
