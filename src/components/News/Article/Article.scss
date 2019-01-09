@@ -1,9 +1,12 @@
-$c--grey: #676767;
+$c--greyDark: #676767;
+$c--white: #fff;
+$c--blackLight: #191919;
+$c--grey: #333;
 
 .article {
 
   &__item {
-    background-color: #fff;
+    background-color: $c--white;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
     margin-bottom: 30px;
@@ -18,7 +21,7 @@ $c--grey: #676767;
 
     a {
       display: block;
-      color: #333;
+      color: $c--grey;
 
       &:hover {
         text-decoration: none;
@@ -29,7 +32,7 @@ $c--grey: #676767;
   &__section {
     font-size: 0.75rem;
     margin: 5px 0 10px;
-    color: $c--grey;
+    color: $c--greyDark;
 
     span {
       padding: 2px 7px;
@@ -41,7 +44,7 @@ $c--grey: #676767;
   &__date {
     margin-top: 20px;
     font-size: 0.75rem;
-    color: $c--grey;
+    color: $c--greyDark;
   }
 
   &__card {
