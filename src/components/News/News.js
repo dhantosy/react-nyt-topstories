@@ -4,7 +4,8 @@ import Article from './Article/Article';
 
 class News extends Component {
   state = {
-    articles: []
+    articles: [],
+    loading: true
   }
 
   componentDidMount() {
@@ -14,7 +15,10 @@ class News extends Component {
 
     axios.get(apiURL + section + '.json?api-key=' + apiKey)
     .then(aResponse => {
-      this.setState({ articles: aResponse.data.results })
+      this.setState({ 
+        articles: aResponse.data.results,
+        loading: false
+      })
     })
     .catch(aError => aError);
   }
@@ -48,17 +52,22 @@ class News extends Component {
         layout={this.props.layout}
       />
     })
-    
-    console.log(this.state.articles);
-    return (
-      <section>
-        <div className='container'>
-          <div className='row'>
-            {article}
+
+    if (this.state.loading) {
+      return (
+        <div className='loader'>Loading</div>
+      )
+    } else {
+      return (
+        <section>
+          <div className='container'>
+            <div className='row'>
+              {article}
+            </div>
           </div>
-        </div>
-      </section>
-    );
+        </section>
+      )
+    }
   }
 }
 

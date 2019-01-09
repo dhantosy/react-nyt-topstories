@@ -57,6 +57,17 @@ body {
           }
         }
       }
+
+      .loader {
+        color: $c--white;
+        background: $c--white;
+
+        &:before,
+        &:after {
+          color: $c--white;
+          background: $c--white;
+        }
+      }
     }
   }
 }
