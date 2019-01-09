@@ -7,23 +7,34 @@ library.add(faThList, faTh);
 
 class Navigation extends Component {
   state = {
-    mode: ''
+    mode: '',
+    layout: ''
   }
 
   getInitialState = () => {
     let mode = localStorage.getItem('mode');
+    let layout = localStorage.getItem('layout');
 
     return {
-        mode: mode
+        mode: mode,
+        layout: layout
     }
   }
 
   componentDidMount = () => {
     let mode = localStorage.getItem('mode');
+    let layout = localStorage.getItem('layout');
+    
     if (mode === 'dark') {
-      document.body.classList.add('mode__dark')
+      this.toggleDarkTheme()
     } else {
-      document.body.classList.remove('mode__dark')
+      this.toggleLightTheme()
+    }
+
+    if (layout === 'list') {
+      this.toggleLayoutList()
+    } else {
+      this.toggleLayoutCard()
     }
 
   }
@@ -41,10 +52,12 @@ class Navigation extends Component {
   }
 
   toggleLayoutList = () => {
+    localStorage.setItem( 'layout', 'list' );
     this.props.layoutChange('list'); 
   }
 
   toggleLayoutCard = () => {
+    localStorage.setItem( 'layout', 'card' );
     this.props.layoutChange('card'); 
   }
 
