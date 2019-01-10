@@ -2,7 +2,7 @@ import React from 'react';
 import './Article.scss';
 
 const article = (props) => (
-  <article className={props.layout === "list" ? "col-sm-8 offset-sm-2 article__list" : "col-sm-6 col-md-4 col-lg-3 article__card"}>
+  <article className={props.layout === "list" ? "col-md-12 col-lg-8 offset-lg-2 article__list" : "col-sm-6 col-md-4 col-lg-3 article__card"}>
     <div className='article__item'>
       <a href={props.url} target='_blank' rel='noopener noreferrer'>
         <figure>

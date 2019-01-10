@@ -88,9 +88,13 @@ $c--grey: #333;
 
     figure {
       margin-bottom: 0;
-      display: inline-block;
       position: absolute;
       left: 20px;
+
+      @media only screen and (max-width: 480px) {
+        position: relative;
+        left: 0;
+      }
     }
 
     a {
@@ -98,11 +102,17 @@ $c--grey: #333;
     }
 
     img {
-
+      @media only screen and (max-width: 480px) {
+        width: 100%;
+      }
     }
 
     h2 {
       font-size: 1.3rem;
+
+      @media only screen and (max-width: 480px) {
+        font-size: 1rem;
+      }
     }
 
     .article {
@@ -117,8 +127,12 @@ $c--grey: #333;
       }
 
       &__desc {
-        display: inline-block;
         padding-left: 230px;
+
+        @media only screen and (max-width: 480px) {
+          padding-left: 0;
+          margin-top: 20px;
+        }
       }
 
     }

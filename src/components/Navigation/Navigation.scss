@@ -5,10 +5,18 @@
 
     span {
       margin-right: 5px;
+
+      @media only screen and (max-width: 360px) {
+        display: block;
+        margin-bottom: 5px;
+      }
     }
 
     button {
       margin: 0 5px;
+      @media only screen and (max-width: 360px) {
+        margin: 0 10px 0 0;
+      }
     }
   }
 
@@ -26,10 +34,21 @@
 
   &__category {
     margin: 5px 0 40px;
+
+    span {
+      @media only screen and (max-width: 360px) {
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
   }
 }
 
 .custom-select {
   width: 200px;
   margin-left: 10px;
+
+  @media only screen and (max-width: 360px) {
+    margin-left: 0;
+  }
 }
