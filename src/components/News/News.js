@@ -5,7 +5,8 @@ import Article from './Article/Article';
 class News extends Component {
   state = {
     articles: [],
-    loading: true
+    loading: true,
+    errorMessage: ''
   }
 
   componentDidMount() {
@@ -28,7 +29,11 @@ class News extends Component {
         loading: false
       })
     })
-    .catch(aError => aError);
+    .catch(aError => {
+      this.setState({
+        errorMessage: aError.message
+      })
+    });
   }
 
   formatDate = (aDate) => {
@@ -36,7 +41,7 @@ class News extends Component {
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
-    return month + "/" + day + "/" + year;
+    return day + "/" + month + "/" + year;
   }
 
   render() {
@@ -62,9 +67,15 @@ class News extends Component {
     })
 
     if (this.state.loading) {
-      return (
-        <div className='loader'>Loading</div>
-      )
+      if (this.state.errorMessage) {
+        return (
+          <div className='message-error'>{this.state.errorMessage}</div>
+        )
+      } else {
+        return (
+          <div className='loader'>Loading</div>
+        )
+      }
     } else {
       return (
         <section>
