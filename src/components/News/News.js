@@ -19,7 +19,9 @@ class News extends Component {
   }
 
   componentWillReceiveProps = (aProp) => {
-    this.fetchData(aProp.category);
+    if (this.getUrlPathname() === aProp.category) {
+      this.fetchData(aProp.category);
+    }
   }
 
   fetchData = (aCategory) => {
