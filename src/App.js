@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import News from './components/News/News';
 import Navigation from './components/Navigation/Navigation';
+import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
 
 class App extends Component {
@@ -20,16 +21,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Navigation
-          layoutChange={this.handleLayoutChange}
-          catChange={this.handleCatChange} />
-        <News 
-          layout={this.state.layout} 
-          category={this.state.category}/>
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Navigation
+            layoutChange={this.handleLayoutChange}
+            catChange={this.handleCatChange} />
+          <News 
+            layout={this.state.layout} 
+            category={this.state.category}/>
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }

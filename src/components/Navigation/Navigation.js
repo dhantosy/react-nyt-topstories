@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThList, faTh } from '@fortawesome/free-solid-svg-icons';
@@ -63,10 +64,11 @@ class Navigation extends Component {
 
   handleChange = (aEvent) => {
     this.props.catChange(aEvent.target.value);
+    this.props.history.push(`/${aEvent.target.value}`);
   }
 
   render() {
-    
+
     return (
       <div className='container'>
         <section>
@@ -120,4 +122,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);
