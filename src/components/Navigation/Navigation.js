@@ -110,6 +110,8 @@ class Navigation extends Component {
               <option value='fashion'>Fashion</option>
               <option value='food'>Food</option>
               <option value='travel'>Travel</option>
+              <option value='science'>Science</option>
+              <option value='sports'>Sports</option>
             </select>
           </div>
         </section>
