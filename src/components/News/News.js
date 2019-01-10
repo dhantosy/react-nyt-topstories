@@ -25,7 +25,7 @@ class News extends Component {
   fetchData = (aCategory) => {
     const apiURL = 'https://api.nytimes.com/svc/topstories/v2/';
     const apiKey = 'ad4b888cfa8c4c1992d7912ff6e4cd56';
-    let section = aCategory ? aCategory : this.getUrlPathname();
+    let section = aCategory ? aCategory : '' ? this.getUrlPathname() : 'home';
 
     axios.get(apiURL + section + '.json?api-key=' + apiKey)
     .then(aResponse => {
