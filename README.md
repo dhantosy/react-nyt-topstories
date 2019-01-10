@@ -2,7 +2,7 @@
 
 This app is created by using Create React App to bootstrap the project.
 
-The app can be accessed in [here](https://dhantosy.github.io/react-nyt-topstories/).
+Demo: [Github Page](https://dhantosy.github.io/react-nyt-topstories/).
 
 To run local server in [http://localhost:3000](http://localhost:3000):
 #### `npm start`
@@ -15,7 +15,7 @@ To `build` the app for production:
 
 Additional dependancies:
 - SASS
-- Bootstrap
+- Bootstrap 4
 - Axios
 - FontAwesome
 - React-router-dom
@@ -27,3 +27,4 @@ TODO:
 - better state and props handling using redux.
 - better route handling.
 - create test cases.
+- refactor methods and functions.
