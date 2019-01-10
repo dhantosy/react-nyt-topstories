@@ -9,7 +9,8 @@ library.add(faThList, faTh);
 class Navigation extends Component {
   state = {
     mode: '',
-    layout: ''
+    layout: '',
+    value: ''
   }
 
   getInitialState = () => {
@@ -25,6 +26,8 @@ class Navigation extends Component {
   componentDidMount = () => {
     let mode = localStorage.getItem('mode');
     let layout = localStorage.getItem('layout');
+
+    this.setState({ value: this.getUrlPathname() });
     
     if (mode === 'dark') {
       this.toggleDarkTheme()
@@ -38,6 +41,11 @@ class Navigation extends Component {
       this.toggleLayoutCard()
     }
 
+  }
+
+  getUrlPathname = () => {
+    let url = window.location.pathname.split('/');
+    return url[1];
   }
 
   toggleDarkTheme = () => {
@@ -65,6 +73,7 @@ class Navigation extends Component {
   handleChange = (aEvent) => {
     this.props.catChange(aEvent.target.value);
     this.props.history.push(`/${aEvent.target.value}`);
+    this.setState({ value: aEvent.target.value });
   }
 
   render() {
