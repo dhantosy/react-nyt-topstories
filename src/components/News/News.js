@@ -9,8 +9,13 @@ class News extends Component {
     errorMessage: ''
   }
 
-  componentDidMount() {
-    this.fetchData();
+  getUrlPathname = () => {
+    let url = window.location.pathname.split('/');
+    return url[1];
+  }
+
+  componentDidMount = () => {
+    this.fetchData(this.getUrlPathname());
   }
 
   componentWillReceiveProps = (aProp) => {
@@ -20,7 +25,7 @@ class News extends Component {
   fetchData = (aCategory) => {
     const apiURL = 'https://api.nytimes.com/svc/topstories/v2/';
     const apiKey = 'ad4b888cfa8c4c1992d7912ff6e4cd56';
-    let section = aCategory ? aCategory : 'home';
+    let section = aCategory ? aCategory : this.getUrlPathname();
 
     axios.get(apiURL + section + '.json?api-key=' + apiKey)
     .then(aResponse => {
