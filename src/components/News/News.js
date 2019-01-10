@@ -10,8 +10,9 @@ class News extends Component {
   }
 
   getUrlPathname = () => {
-    let url = window.location.pathname.split('/');
-    return url[1];
+    let searchUrlParam = (new URL(document.location)).searchParams;
+    let getUrlParams = searchUrlParam.get("section");
+    return getUrlParams ? getUrlParams : 'home';
   }
 
   componentDidMount = () => {
