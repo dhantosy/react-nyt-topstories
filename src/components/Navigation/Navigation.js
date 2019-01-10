@@ -44,8 +44,9 @@ class Navigation extends Component {
   }
 
   getUrlPathname = () => {
-    let url = window.location.pathname.split('/');
-    return url[1];
+    let searchUrlParam = (new URL(document.location)).searchParams;
+    let getUrlParams = searchUrlParam.get("section");
+    return getUrlParams ? getUrlParams : 'home';
   }
 
   toggleDarkTheme = () => {
@@ -72,7 +73,7 @@ class Navigation extends Component {
 
   handleChange = (aEvent) => {
     this.props.catChange(aEvent.target.value);
-    this.props.history.push(`/${aEvent.target.value}`);
+    this.props.history.push(`/react-nyt-topstories/?section=${aEvent.target.value}`);
     this.setState({ value: aEvent.target.value });
   }
 
